@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tris Project</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="row">
+        <div class="five columns">
+          <div class="" id="content">
+            <div class="logo">
+              <h1>Tris</h1>
+              <p>
+                <em>
+                  Dans cette série de blogs j’essaie de créer des visuels plus ou moins complexes 
+                  et d'expliquer les algorithmes derrière ces visuels.
+                </em>
+                <br>
+                <em>
+                <span style="font-weight: bold;">Outils</span>: html, css, js, p5.js
+                </em>
+                <br>
+                <hr>
+              </p>
+              <h3 id="algo">L’ algorithme</h3>
+              <hr>
+            </div>
+            <p style="text-align: justify; text-justify: inter-word;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p style="text-align: justify; text-justify: inter-word;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p style="text-align: justify; text-justify: inter-word;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p style="text-align: justify; text-justify: inter-word;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <h3>Links</h3>
+            <ul>
+              <li>
+                <a href="https://grossack.site/2021/12/08/hitomezashi-maker" target="_blank">
+                  A Hitomezashi Maker
+                </a>
+              </li>
+              <li>
+                <a href="https://aperiodical.com/2020/12/mobile-numbers-hitomezashi-stitching/" target="_blank">
+                  Mobile Numbers: Hitomezashi Stitching
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/watch?v=JbfhzlMk2eY" target="_blank">
+                  Hitomezashi Stitch Patterns - Numberphile
+                </a>
+              </li>
+              <li>
+                <a href="https://arbitrarilyclose.com/2020/03/29/mathartchallenge-day-14-hitomezashi-stitching-suggested-by-katherine-seaton/" target="_blank">
+                  MathArtChallenge
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="seven columns" id="main">
+          <div class="container" id="navbar">
+            <ul class= "navbar-list">
+              <button  class="tri center  button-outline button-small">Tri à bulles</button>
+              <button  class="tri center  button-outline button-small">Tri par insertion</button>
+              <button  class="tri center  button-outline button-small">Tri fusion</button>
+              <button  class="tri center  button-outline button-small">Tri rapide</button>
+              <button  class="tri center  button-outline button-small">Tri par tas</button>
+            </ul>
+          </div>
+          <div class="container" >
+            <div class="slider">
+              <p id="rangeLabel">Array length</p>
+              <input type="range" min="5" max="80" value="20" class="slider" step="5" id="myRange">
+              <p id="rangeValue"><span id="demo"></span></p>
+            </div>
+            <div id="sketch"></div>
+            <div>
+              <div id="buttons">
+                <button id="horizontal" class="center  button-outline button-small"> horizontal</button>
+                <button id="vertical" class="center  button-outline button-small"> vertical</button>
+                <button id="coloring" class="center  button-outline button-small">2 color</button>
+                <button id="multiple_coloring" class="center  button-outline button-small">multiple color</button>
+                <button id="scoring" class="center  button-outline button-small"> scoring</button>
+                <button id="clear" class="center  button-outline button-small">clear</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
