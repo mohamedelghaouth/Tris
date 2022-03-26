@@ -31,4 +31,7 @@ slider.oninput = function() {
   arr = Array.from({length: arrLength}, () => Math.round(Math.random()*(100 - 10) + 10))
   clear();
   setup();
+  i = arrLength - 1;
+  j = 0;
+  loop()
 }

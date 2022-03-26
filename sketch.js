@@ -6,8 +6,14 @@ var maxY = 0;
 var minY = 20;
 var numb = 0;
 
+var i = arrLength - 1;
+var j = 0;
+
+var isOver = false;
+
 function setup() {
   createCanvas(800, 500).parent("sketch");
+  frameRate(1)
   background(220);
   numb = Math.floor((width - 80)/arrLength);
   minX = 40;
@@ -19,7 +25,7 @@ function setup() {
 function draw() {
   switch (_tri) {
     case "Tri à bulles":
-      //text('Tri à bulles', 10, 30);
+        bubbleSort();
       break;
 
     case "Tri par tas":
@@ -42,14 +48,64 @@ function draw() {
 }
 
 
-function drawArray(){
-  for (var i = 0; i < arrLength; i += 1) {
-    rect(minX + i*numb, minY, numb, arr[i]*4);
+function drawArray(color){
+  for (var k = 0; k < arrLength; k += 1) {
+    if(k > i){
+      push()
+      fill("Aqua");
+      rect(minX + k*numb, minY, numb , arr[k]*4);
+      pop();
+    } else if(k == j){
+      push()
+      fill("green");
+      rect(minX + k*numb, minY, numb , arr[k]*4);
+      pop();
+    } else if(k == j + 1){
+      push()
+      fill("yellow");
+      rect(minX + k*numb, minY, numb , arr[k]*4);
+      pop();
+    } else {
+      rect(minX + k*numb, minY, numb, arr[k]*4);
+    }
+
+
     let tmp = fonSize.get(arrLength);
     push()
     textSize(tmp.size);
-    text(arr[i], minX + i*numb + tmp.decalageH, minY + 30);
+    text(arr[k], minX + k*numb + tmp.decalageH, minY + 30);
     pop();
+
   }
 
+}
+
+function bubbleSort(){
+  var tmp = 0;
+
+  if(arr[j] > arr[j + 1]) {
+    clear();
+    setup();
+    drawArray();
+    tmp = arr[j];
+    arr[j] = arr[j + 1];
+    arr[j + 1] = tmp;
+  } 
+
+  clear();
+  setup();
+  drawArray();
+
+  if(j < i){
+    j++;
+  }
+
+  if(j >= i) {
+    j = 0;
+    i--;
+  } 
+
+  if(i == 0 ){
+    noLoop()
+  }
 }
