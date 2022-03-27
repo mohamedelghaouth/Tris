@@ -33,8 +33,14 @@ canvas {
 }
 
 #buttons {
-  display: block;
-  padding-left: 20px;
+  display:flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding-right: 60px;
+}
+
+.ml5 {
+margin-left: 5px;
 }
 
 .button-small {
@@ -44,7 +50,10 @@ canvas {
   padding: 0 0.5rem;
 }
 
-
+.second {
+  display:flex;
+  align-items:center;
+ }
 
 #rangeLabel {
   font-size:26px;
@@ -59,6 +68,7 @@ canvas {
   /* padding-left: 40px; */
   border-radius:20px;
   display:flex;
+  flex-grow: 1;
   align-items:center;
  }
  .slider p {

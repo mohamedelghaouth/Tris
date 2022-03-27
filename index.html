@@ -43,7 +43,7 @@
           </div>
         </div>
         <div class="seven columns" id="main">
-          <div class="container" id="navbar">
+          <div class="row" id="navbar">
             <ul class= "navbar-list">
               <button  class="tri center  button-outline button-small">Tri à bulles</button>
               <button  class="tri center  button-outline button-small">Tri par insertion</button>
@@ -52,20 +52,20 @@
               <button  class="tri center  button-outline button-small">Tri par tas</button>
             </ul>
           </div>
-          <div class="container" >
-            <div class="slider">
-              <p id="rangeLabel">Array length</p>
-              <input type="range" min="5" max="80" value="20" class="slider" step="5" id="myRange">
-              <p id="rangeValue"><span id="demo"></span></p>
+          <div class="row second">
+            <div class="slider two">
+                <p id="rangeLabel">Array length</p>
+                <input type="range" min="5" max="80" value="20" class="slider" step="5" id="myRange">
+                <p id="rangeValue"><span id="demo"></span></p>
             </div>
+            <div id="buttons" class="tree">
+              <button id="start" class="center  button-outline button-small ml5">start</button>
+              <button id="stop"  class="center  button-outline button-small ml5">stop</button>
+              <button id="reset" class="center  button-outline button-small ml5">reset</button>
+            </div>
+          </div>
+          <div class="row">
             <div id="sketch"></div>
-            <div>
-              <div id="buttons">
-                <button id="start" class="center  button-outline button-small">start</button>
-                <button id="stop"  class="center  button-outline button-small">stop</button>
-                <button id="reset" class="center  button-outline button-small">reset</button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
