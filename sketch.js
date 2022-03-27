@@ -46,8 +46,21 @@ function draw() {
   }
 }
 
-
 function drawArray(_highlighted){
+  for (var k = 0; k < arrLength; k += 1) {
+    
+    rect(minX + k*numb, minY, numb, arr[k]*4);
+    let tmp = fonSize.get(arrLength);
+    push()
+    textSize(tmp.size);
+    text(arr[k], minX + k*numb + tmp.decalageH, minY + 30);
+    pop();
+
+  }
+
+}
+
+function drawArrayBubbleSort(_highlighted){
   for (var k = 0; k < arrLength; k += 1) {
     if(k > iBulles){
       push()
@@ -94,7 +107,7 @@ function bubbleSort(){
     if (!highlighted) {
       clear();
       setup();
-      drawArray(false);
+      drawArrayBubbleSort(false);
       highlighted = true;
       return;
     }
@@ -106,7 +119,7 @@ function bubbleSort(){
 
   clear();
   setup();
-  drawArray(true);
+  drawArrayBubbleSort(true);
 
   if(jBulles < iBulles){
     jBulles++;

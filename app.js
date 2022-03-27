@@ -31,6 +31,7 @@ tris.forEach(function(tri) {
       document.getElementById("algo").innerHTML = content.get(e.target.innerHTML).title
       document.getElementById("algoExplanation").innerHTML = content.get(e.target.innerHTML).content
       document.getElementById("links").innerHTML = content.get(e.target.innerHTML).links
+      reset()
    });
   });
 
