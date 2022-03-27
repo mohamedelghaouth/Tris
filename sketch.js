@@ -5,15 +5,14 @@ var minX = 60;
 var maxY = 0;
 var minY = 20;
 var numb = 0;
+var highlighted  = false;
 
-var i = arrLength - 1;
-var j = 0;
 
 var isOver = false;
 
 function setup() {
   createCanvas(800, 500).parent("sketch");
-  frameRate(1)
+  frameRate(fonSize.get(arrLength).frameRate)
   background(220);
   numb = Math.floor((width - 80)/arrLength);
   minX = 40;
@@ -48,21 +47,29 @@ function draw() {
 }
 
 
-function drawArray(color){
+function drawArray(_highlighted){
   for (var k = 0; k < arrLength; k += 1) {
-    if(k > i){
+    if(k > iBulles){
       push()
       fill("Aqua");
       rect(minX + k*numb, minY, numb , arr[k]*4);
       pop();
-    } else if(k == j){
+    } else if(k == jBulles){
       push()
-      fill("green");
+      if(_highlighted){
+        fill("green");
+      } else {
+        fill("red");
+      }
       rect(minX + k*numb, minY, numb , arr[k]*4);
       pop();
-    } else if(k == j + 1){
+    } else if(k == jBulles + 1){
       push()
-      fill("yellow");
+      if(_highlighted){
+        fill("yellow");
+      } else {
+        fill("red");
+      }      
       rect(minX + k*numb, minY, numb , arr[k]*4);
       pop();
     } else {
@@ -83,29 +90,34 @@ function drawArray(color){
 function bubbleSort(){
   var tmp = 0;
 
-  if(arr[j] > arr[j + 1]) {
-    clear();
-    setup();
-    drawArray();
-    tmp = arr[j];
-    arr[j] = arr[j + 1];
-    arr[j + 1] = tmp;
+  if(arr[jBulles] > arr[jBulles + 1]) {
+    if (!highlighted) {
+      clear();
+      setup();
+      drawArray(false);
+      highlighted = true;
+      return;
+    }
+    tmp = arr[jBulles];
+    arr[jBulles] = arr[jBulles + 1];
+    arr[jBulles + 1] = tmp;
+    highlighted = false;
   } 
 
   clear();
   setup();
-  drawArray();
+  drawArray(true);
 
-  if(j < i){
-    j++;
+  if(jBulles < iBulles){
+    jBulles++;
   }
 
-  if(j >= i) {
-    j = 0;
-    i--;
+  if(jBulles >= iBulles) {
+    jBulles = 0;
+    iBulles--;
   } 
 
-  if(i == 0 ){
+  if(iBulles < -1 ){
     noLoop()
   }
 }

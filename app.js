@@ -2,6 +2,21 @@ var _tri = "";
 
 var arrLength;
 
+const resetbuttton = document.querySelector("#reset");
+resetbuttton.addEventListener("click", function() {
+  reset()
+});
+
+const stopbuttton = document.querySelector("#stop");
+stopbuttton.addEventListener("click", function() {
+  stop()
+});
+
+const startbuttton = document.querySelector("#start");
+startbuttton.addEventListener("click", function() {
+  start()
+});
+
 document.addEventListener("DOMContentLoaded", function(){
   _tri = content.get("Tri à bulles").title
   document.getElementById("algo").innerHTML = content.get("Tri à bulles").title
@@ -28,10 +43,21 @@ arrLength = parseInt(slider.value);
 slider.oninput = function() {
   output.innerHTML = this.value;
   arrLength = parseInt(this.value)
+  reset()
+}
+
+function reset(){
   arr = Array.from({length: arrLength}, () => Math.round(Math.random()*(100 - 10) + 10))
   clear();
   setup();
-  i = arrLength - 1;
-  j = 0;
+  initialezRunners();
+  loop();
+}
+
+function stop(){
+  noLoop()
+}
+
+function start(){
   loop()
 }

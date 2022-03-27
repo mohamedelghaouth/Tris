@@ -4,7 +4,7 @@ const content = new Map([
         title:"Tri à bulles",
         content:
         `<p style="text-align: justify; text-justify: inter-word;">
-            Tri à bulles Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+            Tri à bulles Lorem ipsum dolor sit (&amet, consectetur adipiscing elit, 
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
@@ -202,20 +202,20 @@ const content = new Map([
   ]);
 
   const fonSize = new Map([
-    [5,  {size:16, decalageH:5, decalageV: 11}],
-    [10, {size:14, decalageH:5, decalageV: 13}],
-    [15, {size:14, decalageH:5, decalageV: 15}],
-    [20, {size:14, decalageH:5, decalageV: 17}],
-    [25, {size:14, decalageH:5, decalageV: 19}],
-    [30, {size:12, decalageH:2, decalageV: 21}],
-    [35, {size:12, decalageH:2, decalageV: 22}],
-    [40, {size:10, decalageH:2, decalageV: 22}],
-    [45, {size:10, decalageH:2, decalageV: 22}],
-    [50, {size:8, decalageH:1, decalageV: 22}],
-    [55, {size:8, decalageH:1, decalageV: 22}],
-    [60, {size:8, decalageH:0, decalageV: 22}],
-    [65, {size:8, decalageH:0, decalageV: 22}],
-    [70, {size:6, decalageH:0, decalageV: 22}],
-    [75, {size:6, decalageH:0, decalageV: 22}],
-    [80, {size:6, decalageH:0, decalageV: 22}],
+    [5,  {size:16, decalageH:5, decalageV: 11, frameRate: 1 }],
+    [10, {size:14, decalageH:5, decalageV: 13, frameRate: 1 }],
+    [15, {size:14, decalageH:5, decalageV: 15, frameRate: 2 }],
+    [20, {size:14, decalageH:5, decalageV: 17, frameRate: 3 }],
+    [25, {size:14, decalageH:5, decalageV: 19, frameRate: 3 }],
+    [30, {size:12, decalageH:2, decalageV: 21, frameRate: 3 }],
+    [35, {size:12, decalageH:2, decalageV: 22, frameRate: 15}],
+    [40, {size:10, decalageH:2, decalageV: 22, frameRate: 15}],
+    [45, {size:10, decalageH:2, decalageV: 22, frameRate: 15}],
+    [50, {size:8 , decalageH:1, decalageV: 22, frameRate: 15}],
+    [55, {size:8 , decalageH:1, decalageV: 22, frameRate: 15}],
+    [60, {size:8 , decalageH:0, decalageV: 22, frameRate: 20}],
+    [65, {size:8 , decalageH:0, decalageV: 22, frameRate: 20}],
+    [70, {size:6 , decalageH:0, decalageV: 22, frameRate: 20}],
+    [75, {size:6 , decalageH:0, decalageV: 22, frameRate: 20}],
+    [80, {size:6 , decalageH:0, decalageV: 22, frameRate: 20}],
   ]);
