@@ -1,27 +1,27 @@
 var _tri = "";
 
 var arrLength;
+var isOver = false;
 
-const resetbuttton = document.querySelector("#reset");
-resetbuttton.addEventListener("click", function() {
+const resetButton = document.querySelector("#reset");
+resetButton.addEventListener("click", function() {
   reset()
 });
 
-const stopbuttton = document.querySelector("#stop");
-stopbuttton.addEventListener("click", function() {
+const stopButton = document.querySelector("#stop");
+stopButton.addEventListener("click", function() {
   stop()
 });
 
-const startbuttton = document.querySelector("#start");
-startbuttton.addEventListener("click", function() {
+const startButton = document.querySelector("#start");
+startButton.addEventListener("click", function() {
   start()
 });
 
 document.addEventListener("DOMContentLoaded", function(){
   _tri = content.get("Tri à bulles").title
-  document.getElementById("algo").innerHTML = content.get("Tri à bulles").title
+  document.getElementById("algo").innerHTML            = content.get("Tri à bulles").title
   document.getElementById("algoExplanation").innerHTML = content.get("Tri à bulles").content
-  document.getElementById("links").innerHTML = content.get("Tri à bulles").links
 })
 
 let tris = document.querySelectorAll(".tri");
@@ -30,7 +30,6 @@ tris.forEach(function(tri) {
       _tri = content.get(e.target.innerHTML).title
       document.getElementById("algo").innerHTML = content.get(e.target.innerHTML).title
       document.getElementById("algoExplanation").innerHTML = content.get(e.target.innerHTML).content
-      document.getElementById("links").innerHTML = content.get(e.target.innerHTML).links
       clear();
       setup();
       initialezRunners();
@@ -63,5 +62,10 @@ function stop(){
 }
 
 function start(){
-  loop()
+  if (isOver) {
+    reset()
+    isOver = false
+  } else {
+    loop()
+  }
 }

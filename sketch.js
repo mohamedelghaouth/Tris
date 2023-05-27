@@ -1,3 +1,5 @@
+const RECTSIZE = 4
+
 var arr = Array.from({length: arrLength}, () => Math.round(Math.random()*(100 - 10) + 10));
 
 var maxX = 0;
@@ -8,10 +10,8 @@ var numb = 0;
 var highlighted  = false;
 
 
-var isOver = false;
-
 function setup() {
-  createCanvas(800, 500).parent("sketch");
+  createCanvas(0.8*windowWidth, 0.5*windowHeight).parent("sketch");
   frameRate(fonSize.get(arrLength).frameRate)
   background(220);
   numb = Math.floor((width - 80)/arrLength);
@@ -48,11 +48,14 @@ function draw() {
 
 function drawArray(_highlighted){
   for (var k = 0; k < arrLength; k += 1) {
-    
-    rect(minX + k*numb, minY, numb, arr[k]*4);
+    //Draw the rect
+    rect(minX + k*numb, minY, numb, arr[k]*RECTSIZE);
+    //Get the Font Size: it depend on the array length
     let tmp = fonSize.get(arrLength);
+    let size = getSize(tmp.size);
+    // Put the value inside the rectangle
     push()
-    textSize(tmp.size);
+    textSize(size);
     text(arr[k], minX + k*numb + tmp.decalageH, minY + 30);
     pop();
 
@@ -89,15 +92,25 @@ function drawArrayBubbleSort(_highlighted){
       rect(minX + k*numb, minY, numb, arr[k]*4);
     }
 
-
+    // Put the value inside the rectangle
     let tmp = fonSize.get(arrLength);
+    let size = getSize(tmp.size);
+    console.log("🚀 ~ file: sketch.js:97 ~ drawArrayBubbleSort ~ tmp:", size)
     push()
-    textSize(tmp.size);
+    textSize(size);
     text(arr[k], minX + k*numb + tmp.decalageH, minY + 30);
     pop();
 
   }
 
+}
+
+function getSize(size){
+  let sizeVariation = windowWidth/1920
+  if(sizeVariation == 1) return size
+  else {
+    return parseInt((size*windowWidth)/1920)*4
+  }
 }
 
 function bubbleSort(){
@@ -111,9 +124,11 @@ function bubbleSort(){
       highlighted = true;
       return;
     }
+    // Permutation
     tmp = arr[jBulles];
     arr[jBulles] = arr[jBulles + 1];
     arr[jBulles + 1] = tmp;
+    //
     highlighted = false;
   } 
 
@@ -132,5 +147,6 @@ function bubbleSort(){
 
   if(iBulles < -1 ){
     noLoop()
+    isOver = true
   }
 }

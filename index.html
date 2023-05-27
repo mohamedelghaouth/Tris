@@ -19,55 +19,53 @@
   <body>
     <div id="container">
       <div class="row">
-        <div class="five columns">
+        <div class="logo">
+          <h1>Tris</h1>
+          <p>
+            <em>
+              Dans cette série de blogs j’essaie de créer des visuels plus ou moins complexes 
+              et d'expliquer les algorithmes derrière ces visuels.
+            </em>
+            <br>
+            <em>
+            <span style="font-weight: bold;">Outils</span>: html, css, js, p5.js
+            </em>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <hr id="lign">
+        <h3 id="algo"></h3>
+        <ul class= "navbar-list">
+          <button  class="tri center  button-outline button-small">Tri à bulles</button>
+          <button  class="tri center  button-outline button-small">Tri par insertion</button>
+          <button  class="tri center  button-outline button-small">Tri fusion</button>
+          <button  class="tri center  button-outline button-small">Tri rapide</button>
+          <button  class="tri center  button-outline button-small">Tri par tas</button>
+        </ul>
+        <hr id="lign">
+      </div>
+      <div class="row">
           <div class="" id="content">
-            <div class="logo">
-              <h1>Tris</h1>
-              <p>
-                <em>
-                  Dans cette série de blogs j’essaie de créer des visuels plus ou moins complexes 
-                  et d'expliquer les algorithmes derrière ces visuels.
-                </em>
-                <br>
-                <em>
-                <span style="font-weight: bold;">Outils</span>: html, css, js, p5.js
-                </em>
-                <br>
-                <hr>
-              </p>
-              <h3 id="algo"></h3>
-              <hr>
-            </div>
             <div id="algoExplanation"></div>
-            <div id="links"></div>
           </div>
+      </div>
+      <div class="row second">
+        <div class="slider two">
+            <p id="rangeLabel">Array length</p>
+            <input type="range" min="5" max="80" value="20" class="slider" step="5" id="myRange">
+            <p id="rangeValue"><span id="demo"></span></p>
         </div>
-        <div class="seven columns" id="main">
-          <div class="row" id="navbar">
-            <ul class= "navbar-list">
-              <button  class="tri center  button-outline button-small">Tri à bulles</button>
-              <button  class="tri center  button-outline button-small">Tri par insertion</button>
-              <button  class="tri center  button-outline button-small">Tri fusion</button>
-              <button  class="tri center  button-outline button-small">Tri rapide</button>
-              <button  class="tri center  button-outline button-small">Tri par tas</button>
-            </ul>
-          </div>
-          <div class="row second">
-            <div class="slider two">
-                <p id="rangeLabel">Array length</p>
-                <input type="range" min="5" max="80" value="20" class="slider" step="5" id="myRange">
-                <p id="rangeValue"><span id="demo"></span></p>
-            </div>
-            <div id="buttons" class="tree">
-              <button id="start" class="center  button-outline button-small ml5">start</button>
-              <button id="stop"  class="center  button-outline button-small ml5">stop</button>
-              <button id="reset" class="center  button-outline button-small ml5">reset</button>
-            </div>
-          </div>
-          <div class="row">
-            <div id="sketch"></div>
-          </div>
+      </div>
+      <div class="row second">
+        <div id="buttons" class="tree">
+          <button id="start" class="center  button-outline button-small ml5">start</button>
+          <button id="stop"  class="center  button-outline button-small ml5">stop</button>
+          <button id="reset" class="center  button-outline button-small ml5">reset</button>
         </div>
+      </div>
+      <div class="row">
+        <div id="sketch"></div>
       </div>
     </div>
     <script src="app.js"></script>

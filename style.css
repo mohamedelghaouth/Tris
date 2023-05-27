@@ -4,15 +4,21 @@ html, body {
   width: 100%;
 }
 
-canvas {
-  display: block;
-  padding: 10px;
+#lign {
+  margin-top: 1rem;
 }
 
+#container {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
+
 #navbar {
-  margin-top: 15px;
+  margin-top: 0px;
   padding-left: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .logo {
@@ -35,8 +41,9 @@ canvas {
 #buttons {
   display:flex;
   flex-grow: 1;
-  justify-content: flex-end;
+  justify-content: center;
   padding-right: 60px;
+  margin-top: 20px;
 }
 
 .ml5 {
@@ -56,7 +63,7 @@ margin-left: 5px;
  }
 
 #rangeLabel {
-  font-size:26px;
+  font-size:16px;
   font-weight:600;
   font-family: Open Sans;
   padding-right:30px;
