@@ -32,7 +32,7 @@ tris.forEach(function(tri) {
       document.getElementById("algoExplanation").innerHTML = content.get(e.target.innerHTML).content
       clear();
       setup();
-      initialezRunners();
+      initializeRunners();
       loop();
    });
   });
@@ -53,7 +53,7 @@ function reset(){
   arr = Array.from({length: arrLength}, () => Math.round(Math.random()*(100 - 10) + 10))
   clear();
   setup();
-  initialezRunners();
+  initializeRunners();
   loop();
 }
 
