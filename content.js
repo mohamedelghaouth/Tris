@@ -139,5 +139,5 @@ const fonSize = new Map([
   [65, { size: 12, decalageH: 0, decalageV: 22, frameRate: 20 }],
   [70, { size: 12, decalageH: 0, decalageV: 22, frameRate: 20 }],
   [75, { size: 12, decalageH: 0, decalageV: 22, frameRate: 20 }],
-  [80, { size: 10, decalageH: 0, decalageV: 22, frameRate: 20 }],
+  [80, { size: 10, decalageH: 0, decalageV: 22, frameRate: 40 }],
 ]);
