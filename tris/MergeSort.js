@@ -49,7 +49,7 @@ async function merge(start, end, half) {
       ++rightRunner;
     } else if (arr[rightRunner] < arr[leftRunner]) {
       isDone = false;
-      shiftToTheRight(leftRunner, rightRunner);
+      await shiftToTheRight(leftRunner, rightRunner);
       isDone = false;
     }
     ++leftRunner;

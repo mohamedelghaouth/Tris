@@ -77,12 +77,24 @@ const content = new Map([
     {
       title: "Tri fusion",
       content: `<p style="text-align: justify; text-justify: inter-word;">
-            Tri fusion Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>`,
+            Trie par fusion consiste à diviser le tableau en deux sous tableau, trier chacun des deux tableaux puis merger les deux. Pour la trie des sous-tableaux on applique le même algorithme
+        </p>
+        <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Complexité dans le meilleur des cas</th>
+                <th>Complexité dans le pire des cas</th>
+                <th>Complexité en moyenne</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Θ(nlog(n))</td>
+                <td>Θ(nlog(n))</td>
+                <td>Θ(nlog(n))</td>
+              </tr>
+            </tbody>
+        </table>`,
       links: ``,
     },
   ],
@@ -139,5 +151,5 @@ const fonSize = new Map([
   [65, { size: 12, decalageH: 0, decalageV: 22, frameRate: 20 }],
   [70, { size: 12, decalageH: 0, decalageV: 22, frameRate: 20 }],
   [75, { size: 12, decalageH: 0, decalageV: 22, frameRate: 20 }],
-  [80, { size: 10, decalageH: 0, decalageV: 22, frameRate: 40 }],
+  [80, { size: 10, decalageH: 0, decalageV: 22, frameRate: 20 }],
 ]);

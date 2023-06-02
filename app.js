@@ -4,6 +4,7 @@ var _tri = "";
 
 var arrLength;
 var isOver = false;
+var isStopped = false;
 
 const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", function () {
@@ -54,10 +55,14 @@ arrLength = parseInt(slider.value);
 slider.oninput = function () {
   output.innerHTML = this.value;
   arrLength = parseInt(this.value);
+  isOver = true;
+  clear();
+  noLoop();
   reset();
 };
 
 function reset() {
+  isOver = true;
   count = 0;
   arr = Array.from({ length: arrLength }, () =>
     Math.round(Math.random() * (100 - 10) + 10)
@@ -66,9 +71,12 @@ function reset() {
   setup();
   initializeRunners();
   loop();
+  isOver = false;
+  isStopped = false;
 }
 
 function stop() {
+  isStopped = true;
   noLoop();
 }
 
@@ -78,5 +86,6 @@ function start() {
     isOver = false;
   } else {
     loop();
+    isStopped = false;
   }
 }

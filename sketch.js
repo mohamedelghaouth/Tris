@@ -12,6 +12,7 @@ var maxY = 0;
 var minY = 20;
 var numb = 0;
 var highlighted = false;
+var rate = fonSize.get(arrLength).frameRate;
 
 function setup() {
   createCanvas(0.8 * windowWidth, 0.5 * windowHeight).parent("sketch");
@@ -35,7 +36,7 @@ function draw() {
       break;
 
     case "Tri rapide":
-      //text('Tri rapide', 10, 30);
+      quickSortIterative();
       break;
 
     case "Tri fusion":
