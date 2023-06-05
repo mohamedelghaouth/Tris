@@ -5,6 +5,7 @@ var _tri = "";
 var arrLength;
 var isOver = false;
 var isStopped = false;
+var isMergeSort = true;
 
 const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", function () {
@@ -22,6 +23,7 @@ startButton.addEventListener("click", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  isMergeSort = false;
   _tri = content.get("Tri à bulles").title;
   document.getElementById("algo").innerHTML = content.get("Tri à bulles").title;
   document.getElementById("algoExplanation").innerHTML =
@@ -38,11 +40,14 @@ tris.forEach(function (tri) {
     document.getElementById("algoExplanation").innerHTML = content.get(
       e.target.innerHTML
     ).content;
-    clear();
-    setup();
-    initializeRunners();
-    loop();
-    isOver = false;
+    if (_tri == "Tri fusion") {
+      isMergeSort = true;
+      disableSlider();
+    } else {
+      isMergeSort = false;
+      enableSlider();
+    }
+    reset();
   });
 });
 
@@ -55,37 +60,64 @@ arrLength = parseInt(slider.value);
 slider.oninput = function () {
   output.innerHTML = this.value;
   arrLength = parseInt(this.value);
-  isOver = true;
+  if (isMergeSort) {
+    disableSlider();
+    isOver = false;
+    isDone = false;
+  } else {
+    enableSlider();
+  }
   clear();
   noLoop();
   reset();
 };
 
 function reset() {
-  isOver = true;
+  isOver = false;
+  isDone = false;
+  isStopped = false;
+
   count = 0;
   arr = Array.from({ length: arrLength }, () =>
     Math.round(Math.random() * (100 - 10) + 10)
   );
+  disableSlider();
   clear();
   setup();
   initializeRunners();
   loop();
-  isOver = false;
-  isStopped = false;
 }
 
 function stop() {
-  isStopped = true;
-  noLoop();
+  if (!isStopped) {
+    noLoop();
+  } else {
+    loop();
+  }
+  isStopped = !isStopped;
 }
 
 function start() {
   if (isOver) {
     reset();
     isOver = false;
+    isDone = false;
   } else {
     loop();
     isStopped = false;
   }
+}
+
+function disableSlider() {
+  if (isMergeSort) {
+    slider.disabled = true;
+  }
+}
+
+function enableSlider() {
+  slider.disabled = false;
+}
+
+function enableSliderSecond(bool) {
+  slider.disabled = !bool;
 }

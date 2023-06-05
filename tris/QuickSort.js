@@ -61,8 +61,8 @@ function partition(start, end) {
   for (let i = start; i < end - 1; i++) {
     if (arr[i] < pivotElement) {
       swap(i, indexOfCurrentGreater);
-      states[indexOfCurrentGreater] = STATE_OF_GREATER;
-      states[i] = STATE_OF_SMALLER;
+      //states[indexOfCurrentGreater] = STATE_OF_GREATER;
+      //states[i] = STATE_OF_SMALLER;
 
       indexOfCurrentGreater++;
     }
@@ -70,12 +70,12 @@ function partition(start, end) {
   //states[pivotIndex] = STATE_OF_NORMAL;
 
   swap(pivotIndex, indexOfCurrentGreater);
-  states[indexOfCurrentGreater] = STATE_OF_PIVOT;
+  //states[indexOfCurrentGreater] = STATE_OF_PIVOT;
 
   for (let i = start; i < end; i++) {
     // restore original state
     if (i != indexOfCurrentGreater) {
-      states[i] = STATE_OF_NORMAL;
+      //states[i] = STATE_OF_NORMAL;
     }
   }
   return indexOfCurrentGreater;
@@ -103,7 +103,7 @@ function quickSortIterative() {
   }
   clear();
   setup();
-  drawArrayW();
+  drawArrayQK();
 
   // Pop h and l
   h = stack.pop();
@@ -111,14 +111,16 @@ function quickSortIterative() {
   l = stack.pop();
   clear();
   setup();
-  drawArrayW();
+  drawArrayQK(l, h, h - 1);
   // Set pivot element at its correct position in
   let p = partition(l, h);
-  states[p] = STATE_OF_SORTED_ELEMENT;
+  pivots[p] = STATE_OF_SORTED_ELEMENT;
 
   clear();
   setup();
-  drawArrayW();
+  drawArrayQK(l, h, p);
+  states[p] = STATE_OF_NORMAL;
+
   // If there are elements on left side of pivot,
   // then push left side to stack
   if (p - 1 > l) {
@@ -131,5 +133,63 @@ function quickSortIterative() {
   if (p + 1 < h) {
     stack.push(p + 1);
     stack.push(h);
+  }
+}
+function drawArrayQK(l, h, p) {
+  for (var k = 0; k < arrLength; k += 1) {
+    // color coding
+    if (k < h && k >= l && k != p) {
+      push();
+      fill("Yellow");
+      rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
+      pop();
+    } else if (k == p) {
+      // color for the bars being sorted currently
+      push();
+      fill("red");
+      rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
+      pop();
+    } else if (pivots[k] == STATE_OF_SORTED_ELEMENT) {
+      // color for the bars being sorted currently
+      push();
+      fill("LawnGreen");
+      rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
+      pop();
+    } else {
+      push();
+      fill(255);
+      rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
+      pop();
+    }
+
+    let tmp = fonSize.get(arrLength);
+    let size = getSize(tmp.size);
+    // Put the value inside the rectangle
+    push();
+    textSize(size);
+    if (arrLength <= 30) {
+      text(arr[k], minX + k * numb + tmp.decalageH, minY + 30);
+    }
+    pop();
+  }
+}
+
+function drawArraySecond() {
+  for (var k = 0; k < arrLength; k += 1) {
+    //Draw the rect
+    push();
+    fill("green");
+    rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
+    pop();
+    //Get the Font Size: it depend on the array length
+    let tmp = fonSize.get(arrLength);
+    let size = getSize(tmp.size);
+    // Put the value inside the rectangle
+    push();
+    textSize(size);
+    if (arrLength <= 30) {
+      text(arr[k], minX + k * numb + tmp.decalageH, minY + 30);
+    }
+    pop();
   }
 }

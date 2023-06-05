@@ -7,11 +7,7 @@ var iInsertion = 1;
 
 var stackRunner = -1;
 var stack = [];
-var h;
-var l;
-var i;
-var poppedKnewHandL = false;
-var canPopKnewHandL = true;
+var pivots = [];
 
 // The array 'states' helps in identifying the pivot index
 // at every step, and also the subarray which is being sorted
@@ -34,10 +30,9 @@ function initializeInsertionSortRunners() {
 }
 
 function initializeQuickSortRunners() {
+  pivots = [];
   states = [];
   stack = [];
   stack.push(0);
   stack.push(arrLength);
-  poppedKnewHandL = false;
-  canPopKnewHandL = true;
 }

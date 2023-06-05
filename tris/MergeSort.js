@@ -3,86 +3,93 @@ var count = 0;
 var isDone = false;
 
 async function mergeSort() {
-  isDone = true;
-  await sorting(0, arrLength);
-
-  clear();
-  setup();
-  drawArray();
-
   if (isDone) {
-    drawArraySecond();
-
+    enableSliderSecond(isDone);
     noLoop();
-    isOver = true;
+    return;
+  } else {
+    try {
+      isDone = await sorting(0, arrLength);
+    } catch (error) {
+      isDone = true;
+      enableSliderSecond(isDone);
+      noLoop();
+    }
   }
 }
 async function sorting(start, end) {
-  if (end - start <= 1) return;
+  try {
+    if (isDone) {
+      throw new Error("error");
+    } else if (end - start <= 1) {
+      return true;
+    } else {
+      var half = parseInt((start + end) / 2);
+      clear();
+      setup();
+      drawArray();
+      let sortedLeft = await sorting(start, half);
 
-  var half = parseInt((start + end) / 2);
-  clear();
-  setup();
-  drawArray();
-  await sorting(start, half);
-  clear();
-  setup();
-  drawArray();
+      clear();
+      setup();
+      drawArray();
+      let sortedRight = await sorting(half, end);
+      clear();
+      setup();
+      drawArray();
+      merge(start, end, half);
 
-  await sorting(half, end);
+      clear();
+      setup();
+      drawArray();
+      await sleeping();
 
-  clear();
-  setup();
-  drawArray();
-  await merge(start, end, half);
-  clear();
-  setup();
-  drawArray();
-}
-
-async function merge(start, end, half) {
-  var leftRunner = start;
-  var rightRunner = half;
-
-  while (leftRunner <= end || rightRunner <= end) {
-    if (leftRunner == rightRunner) {
-      ++rightRunner;
-    } else if (arr[rightRunner] < arr[leftRunner]) {
-      isDone = false;
-      await shiftToTheRight(leftRunner, rightRunner);
-      isDone = false;
+      return sortedLeft && sortedRight;
     }
-    ++leftRunner;
+  } catch (error) {
+    throw error;
   }
 }
 
-async function shiftToTheRight(from, to) {
-  isDone = false;
+function merge(start, end, half) {
+  var leftRunner = start;
+  var rightRunner = half;
 
+  while (!isDone && leftRunner < end && rightRunner < end) {
+    if (rightRunner == leftRunner) {
+      ++rightRunner;
+    } else if (arr[leftRunner] < arr[rightRunner]) {
+      ++leftRunner;
+    } else if (arr[rightRunner] <= arr[leftRunner]) {
+      shiftToTheRight(leftRunner, rightRunner);
+      ++rightRunner;
+      ++leftRunner;
+    }
+  }
+}
+
+function shiftToTheRight(from, to) {
   var tmp = arr[to];
   for (let index = to; index > from; index--) {
     arr[index] = arr[index - 1];
   }
   arr[from] = tmp;
-  isDone = false;
 }
 
-function drawArraySecond() {
-  for (var k = 0; k < arrLength; k += 1) {
-    //Draw the rect
-    push();
-    fill("green");
-    rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
-    pop();
-    //Get the Font Size: it depend on the array length
-    let tmp = fonSize.get(arrLength);
-    let size = getSize(tmp.size);
-    // Put the value inside the rectangle
-    push();
-    textSize(size);
-    if (arrLength <= 30) {
-      text(arr[k], minX + k * numb + tmp.decalageH, minY + 30);
-    }
-    pop();
+// function to emulate sleep
+async function sleeping() {
+  if (arrLength >= 75) {
+    await sleep(15);
+  } else if (arrLength >= 65) {
+    await sleep(25);
+  } else if (arrLength >= 40) {
+    await sleep(70);
+  } else if (arrLength >= 20) {
+    await sleep(100);
+  } else {
+    await sleep(200);
   }
+}
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
