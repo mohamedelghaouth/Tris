@@ -3,6 +3,10 @@
 var iBulles = arrLength - 1;
 var jBulles = 0;
 
+var selectionSortStart = 0;
+var iSelectionSort = 0;
+var minimumElementIndex = 0;
+
 var iInsertion = 1;
 
 var stackRunner = -1;
@@ -17,12 +21,19 @@ let states = [];
 function initializeRunners() {
   initializeBubbleSortRunners();
   initializeInsertionSortRunners();
+  initializeSelectionSortRunners();
   initializeQuickSortRunners();
 }
 
 function initializeBubbleSortRunners() {
   iBulles = arrLength - 1;
   jBulles = 0;
+}
+
+function initializeSelectionSortRunners() {
+  selectionSortStart = 0;
+  iSelectionSort = 0;
+  minimumElementIndex = 0;
 }
 
 function initializeInsertionSortRunners() {

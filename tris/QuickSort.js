@@ -178,7 +178,7 @@ function drawArraySecond() {
   for (var k = 0; k < arrLength; k += 1) {
     //Draw the rect
     push();
-    fill("green");
+    fill("LawnGreen");
     rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
     pop();
     //Get the Font Size: it depend on the array length

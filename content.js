@@ -62,7 +62,34 @@ const content = new Map([
             </thead>
             <tbody>
               <tr>
-                <td>Θ(n)</td>
+                <td>Θ(n2)</td>
+                <td>Θ(n2)</td>
+                <td>Θ(n2)</td>
+              </tr>
+            </tbody>
+        </table>
+        `,
+      links: ``,
+    },
+  ],
+  [
+    "Tri par sélection",
+    {
+      title: "Tri par sélection",
+      content: `
+        <p style="text-align: justify; text-justify: inter-word;">
+Le tri par sélection consiste à chercher l'element le plus petit du tableau puis le mettre à la  premier position puis chercher le seconde plus petit element et le mettre à la  seconde position et ainsi de suite        </p>
+        <table class="u-full-width">
+            <thead>
+              <tr>
+                <th>Complexité dans le meilleur des cas</th>
+                <th>Complexité dans le pire des cas</th>
+                <th>Complexité en moyenne</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Θ(n2)</td>
                 <td>Θ(n2)</td>
                 <td>Θ(n2)</td>
               </tr>
@@ -102,19 +129,9 @@ const content = new Map([
     "Tri rapide",
     {
       title: "Tri rapide",
-      content: `<p style="text-align: justify; text-justify: inter-word;">
-            Tri rapide Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+      content: `
         <p style="text-align: justify; text-justify: inter-word;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO 
         </p>`,
       links: ``,
     },
@@ -124,11 +141,7 @@ const content = new Map([
     {
       title: "Tri par tas",
       content: `<p style="text-align: justify; text-justify: inter-word;">
-            Tri par tas Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO TO DO 
         </p>`,
       links: ``,
     },
