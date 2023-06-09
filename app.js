@@ -26,8 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
   isMergeSort = false;
   _tri = content.get("Tri à bulles").title;
   document.getElementById("algo").innerHTML = content.get("Tri à bulles").title;
-  document.getElementById("algoExplanation").innerHTML =
-    content.get("Tri à bulles").content;
 });
 
 let tris = document.querySelectorAll(".tri");
@@ -37,15 +35,12 @@ tris.forEach(function (tri) {
     document.getElementById("algo").innerHTML = content.get(
       e.target.innerHTML
     ).title;
-    document.getElementById("algoExplanation").innerHTML = content.get(
-      e.target.innerHTML
-    ).content;
     if (_tri == "Tri fusion") {
       isMergeSort = true;
-      disableSlider();
+      disableSliderAndButtons();
     } else {
       isMergeSort = false;
-      enableSlider();
+      enableSliderAndButtons();
     }
     reset();
   });
@@ -61,11 +56,11 @@ slider.oninput = function () {
   output.innerHTML = this.value;
   arrLength = parseInt(this.value);
   if (isMergeSort) {
-    disableSlider();
+    disableSliderAndButtons();
     isOver = false;
     isDone = false;
   } else {
-    enableSlider();
+    enableSliderAndButtons();
   }
   clear();
   noLoop();
@@ -81,7 +76,7 @@ function reset() {
   arr = Array.from({ length: arrLength }, () =>
     Math.round(Math.random() * (100 - 10) + 10)
   );
-  disableSlider();
+  disableSliderAndButtons();
   clear();
   setup();
   initializeRunners();
@@ -108,16 +103,25 @@ function start() {
   }
 }
 
-function disableSlider() {
+function disableSliderAndButtons() {
   if (isMergeSort) {
     slider.disabled = true;
+    document.getElementById("start").disabled = true;
+    document.getElementById("stop").disabled = true;
+    document.getElementById("reset").disabled = true;
   }
 }
 
-function enableSlider() {
+function enableSliderAndButtons() {
   slider.disabled = false;
+  document.getElementById("start").disabled = false;
+  document.getElementById("stop").disabled = false;
+  document.getElementById("reset").disabled = false;
 }
 
-function enableSliderSecond(bool) {
+function enableSliderAndButtonsWithBoolean(bool) {
   slider.disabled = !bool;
+  document.getElementById("start").disabled = !bool;
+  document.getElementById("stop").disabled = !bool;
+  document.getElementById("reset").disabled = !bool;
 }

@@ -42,7 +42,7 @@ function drawArrayInsertionSort(tmp) {
   for (var k = 0; k <= arrLength; k += 1) {
     if (k == tmp + 1 && tmp + 1 < arrLength) {
       push();
-      fill("red");
+      fill("Yellow");
       rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
       pop();
     } else if (k > iInsertion) {
@@ -51,7 +51,7 @@ function drawArrayInsertionSort(tmp) {
       pop();
     } else if (k <= iInsertion) {
       push();
-      fill("green");
+      fill("LawnGreen");
       rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
       pop();
     }

@@ -4,7 +4,6 @@ var isDone = false;
 
 async function mergeSort() {
   if (isDone) {
-    enableSliderSecond(isDone);
     noLoop();
     return;
   } else {
@@ -12,7 +11,7 @@ async function mergeSort() {
       isDone = await sorting(0, arrLength);
     } catch (error) {
       isDone = true;
-      enableSliderSecond(isDone);
+      enableSliderAndButtonsWithBoolean(isDone);
       noLoop();
     }
   }

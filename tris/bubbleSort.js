@@ -1,14 +1,16 @@
+/** @format */
+
 function drawArrayBubbleSort(_highlighted) {
   for (var k = 0; k < arrLength; k += 1) {
     if (k > iBulles) {
       push();
-      fill("Aqua");
+      fill("LawnGreen");
       rect(minX + k * numb, minY, numb, arr[k] * RECTANGLE_SIZE);
       pop();
     } else if (k == jBulles) {
       push();
       if (_highlighted) {
-        fill("green");
+        fill("Aqua");
       } else {
         fill("red");
       }
@@ -32,7 +34,7 @@ function drawArrayBubbleSort(_highlighted) {
     let size = getSize(tmp.size);
     push();
     textSize(size);
-    if(arrLength <= 30) {
+    if (arrLength <= 30) {
       text(arr[k], minX + k * numb + tmp.decalageH, minY + 30);
     }
     pop();

@@ -5,7 +5,11 @@ html, body {
 }
 
 #lign {
-  margin-top: 1rem;
+  margin-top: 0px;
+}
+
+#sketch{
+  margin-bottom: 20px;
 }
 
 #container {

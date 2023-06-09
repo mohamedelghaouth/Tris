@@ -13,6 +13,9 @@ var stackRunner = -1;
 var stack = [];
 var pivots = [];
 
+var iHeapSort = arrLength - 1;
+var heapified = false;
+
 // The array 'states' helps in identifying the pivot index
 // at every step, and also the subarray which is being sorted
 // at any given time.
@@ -23,6 +26,7 @@ function initializeRunners() {
   initializeInsertionSortRunners();
   initializeSelectionSortRunners();
   initializeQuickSortRunners();
+  initializeHeapSortRunners();
 }
 
 function initializeBubbleSortRunners() {
@@ -46,4 +50,9 @@ function initializeQuickSortRunners() {
   stack = [];
   stack.push(0);
   stack.push(arrLength);
+}
+
+function initializeHeapSortRunners() {
+  iHeapSort = arrLength - 1;
+  heapified = false;
 }

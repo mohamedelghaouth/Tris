@@ -59,7 +59,7 @@ function draw() {
       break;
 
     case "Tri par tas":
-      //text('Tri par tas', 10, 30);
+      heapSort();
       break;
     default:
       break;
