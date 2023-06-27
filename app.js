@@ -31,10 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 let tris = document.querySelectorAll(".tri");
 tris.forEach(function (tri) {
   tri.addEventListener("click", function (e) {
-    _tri = content.get(e.target.innerHTML).title;
-    document.getElementById("algo").innerHTML = content.get(
-      e.target.innerHTML
-    ).title;
+    _tri = content.get(e.target.id).title;
+    document.getElementById("algo").innerHTML = content.get(e.target.id).title;
     if (_tri == "Tri fusion") {
       isMergeSort = true;
       disableSliderAndButtons();
